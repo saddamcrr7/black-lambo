@@ -1,0 +1,68 @@
+.c-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__brand {
+    font-size: 30px;
+  }
+
+  &__menu {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  &__menu-item {
+    &--toggler {
+        margin-left: 26px;
+        padding-left: 26px;
+        position: relative;
+        cursor: pointer;
+        
+        &::before {
+            content: "";
+            background-color: hsla(0,0%,100%,.2);
+            width: 1px;
+            height: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+  }
+
+  &__menu-link {
+    color: $white;
+    padding: 14px;
+    display: block;
+    position: relative;
+
+    &:hover {
+      color: $primary;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0.25rem;
+      height: 0.25rem;
+      transform: translateX(-50%);
+      background-color: $primary;
+      border-radius: 2px;
+      opacity: 0;
+    }
+
+    &.nuxt-link-active {
+      color: $primary;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}

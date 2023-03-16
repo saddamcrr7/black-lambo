@@ -1,0 +1,128 @@
+.o-hero {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 7rem;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  &__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__container {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    max-height: 810px;
+    height: 100%;
+    z-index: 2;
+    overflow: hidden;
+  }
+
+  &__border {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba($white, 0.2);
+
+    &--top {
+      top: 0;
+    }
+
+    &--bottom {
+      bottom: 0;
+    }
+  }
+
+  &__side {
+    flex: 1;
+    position: relative;
+    display: flex;
+    padding: 1.25rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 2.5rem;
+    width: calc(100vh - 12.25rem);
+    max-width: 73rem;
+    position: relative;
+  }
+
+  &__sub {
+    letter-spacing: -0.01em;
+    margin-top: 3.75rem;
+    margin-bottom: 2rem;
+    font-size: 25px;
+    color: hsla(0, 0%, 100%, 0.5);
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 58px;
+    line-height: 63px;
+    text-align: center;
+    margin-bottom: 6.5rem;
+  }
+
+  &__circle {
+    width: auto;
+    height: calc(100% + 0.375rem);
+    position: absolute;
+    top: -0.1875rem;
+    stroke: hsla(0, 0%, 100%, 0.2);
+    pointer-events: none;
+    
+    &--left {
+      left: auto;
+      right: -3px;
+    }
+
+    &--center {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &--right {
+      left: -3px;
+    }
+  }
+
+  &__scrollto {
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 5.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: hsla(0, 0%, 100%, 0.5);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
