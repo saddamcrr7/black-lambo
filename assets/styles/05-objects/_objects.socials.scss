@@ -1,0 +1,14 @@
+.o-socials {
+    position: absolute;
+    top: 178px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    &__cta {
+        &+& {
+            margin-top: 45px;
+        }
+    }
+}

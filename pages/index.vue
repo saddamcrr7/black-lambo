@@ -1,7 +1,5 @@
 <template>
-  <div>
-    Black lambo
-  </div>
+ <HomeHero/>
 </template>
 
 <script>

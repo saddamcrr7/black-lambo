@@ -38,13 +38,9 @@ export default {
     // prefetch: true,
     preload: true,
     families: {
-      Manrope: {
+      Inter: {
         wght: [400, 500, 600, 700, 800],
-      },
-
-      "Roboto+Mono": {
-        wght: [400, 800],
-      },
+      }
     },
   },
 

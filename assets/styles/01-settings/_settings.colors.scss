@@ -6,8 +6,9 @@ $light-pink: #DAC5D3;
 $grey:       #eaeaea;
 $white:      #ffffff;
 $black:      #000000;
-$dark:       #202020;
+$dark:       #1C1B1B;
 $super-dark: #121212;
+$light:      #F6F5F2;
 
 $theme-colors-rgb: (
     "primary":    #00C9FF,
@@ -17,4 +18,4 @@ $theme-colors-rgb: (
 
 $headings-color: $white !default;
 $body-color:     $white!default;
-$body-bg:     $super-dark!default;
+$body-bg:     $dark!default;
