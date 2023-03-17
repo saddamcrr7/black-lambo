@@ -1,0 +1,56 @@
+.o-slider-one {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 145px;
+  padding-bottom: 20px;
+  overflow: hidden;
+
+  &__container {
+    @include make-container();
+    max-width: 1680px + $grid-gutter-width;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__title {
+    max-width: 759px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: $font-weight-normal;
+    font-size: 74px;
+    line-height: 130%;
+  }
+
+  &__image {
+    width: 100%;
+    height: 350px;
+    margin-top: 40px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      will-change: transform;
+    }
+  }
+
+  &__sub {
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 100.02%;
+    margin-top: 40px;
+  }
+
+  &__cta {
+    margin-top: 80px;
+    padding: 19px 56px;
+    font-weight: $font-weight-medium;
+    font-size: 16px;
+    line-height: 160%;
+    border: 2px solid $light;
+  }
+}

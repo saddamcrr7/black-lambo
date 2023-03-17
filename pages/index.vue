@@ -1,9 +1,12 @@
 <template>
- <HomeHero/>
+  <div class="index-page">
+    <HomeHero />
+    <HomeSlideOne />
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
-}
+  name: "IndexPage",
+};
 </script>

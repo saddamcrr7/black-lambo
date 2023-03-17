@@ -10,7 +10,7 @@
   &__container {
     position: relative;
     width: 100%;
-    max-width: 1680px + 30px;
+    max-width: 1680px + $grid-gutter-width;
     padding: 30px;
     margin: 0 auto;
   }
