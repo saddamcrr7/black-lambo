@@ -1,0 +1,146 @@
+.o-slide-about {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 253px;
+  padding-bottom: 45px;
+  background: $light;
+
+  &__container {
+    @include make-container();
+    max-width: 1680px + $grid-gutter-width;
+    height: 100%;
+  }
+
+  &__row {
+    display: flex;
+    height: 100%;
+  }
+
+  &__col {
+    width: 100%;
+    border-left: 1px solid $dark;
+
+    &--left {
+      max-width: 533px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 0 45px;
+    }
+
+    &--right {
+      max-width: 1075px;
+      padding-left: 50px;
+      padding-right: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    color: $dark;
+    font-weight: $font-weight-normal;
+    font-size: 48px;
+    line-height: 100.02%;
+
+    > svg {
+      width: 22px;
+      height: 22px;
+      path {
+        stroke: $dark;
+      }
+    }
+  }
+
+  &__sub {
+    color: $dark;
+    font-weight: $font-weight-medium;
+    font-size: 20px;
+    line-height: 100.02%;
+    margin-top: 20px;
+  }
+
+  &__text {
+    color: rgba($dark, 0.7);
+    font-size: 20px;
+    line-height: 160%;
+    margin-top: 50px;
+  }
+
+  &__image {
+    margin-top: 50px;
+    width: 100%;
+    height: 370px;
+    overflow: hidden;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__ctas {
+  }
+
+  &__cta {
+    display: block;
+    padding-bottom: 45px;
+    border-bottom: 1px solid $dark;
+
+    & + & {
+      margin-top: 45px;
+    }
+  }
+
+  &__cta-title {
+    color: $dark;
+    font-size: 48px;
+    display: flex;
+    justify-content: space-between;
+    line-height: 100.02%;
+  }
+
+  &__cta-icon {
+    width: 22px;
+    height: 22px;
+    path {
+      stroke: $dark;
+    }
+  }
+
+  &__cta-sub {
+    color: $dark;
+    font-size: 20px;
+    line-height: 160%;
+    margin-top: 20px;
+  }
+
+  &__socials {
+  }
+
+  &__socials-title {
+    color: $dark;
+    font-size: 20px;
+    line-height: 160%;
+  }
+
+  &__socials-list {
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-top: 45px;
+  }
+
+  &__socials-item {
+    & + * {
+      margin-left: 45px;
+    }
+    svg path {
+      fill: $dark;
+    }
+  }
+}

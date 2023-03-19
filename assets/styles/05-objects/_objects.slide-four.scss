@@ -1,0 +1,47 @@
+.o-slide-four {
+  width: 100vw;
+  height: 100vh;
+
+  &__container {
+    @include make-container();
+    max-width: 1680px + $grid-gutter-width;
+    height: 100%;
+  }
+
+  &__content {
+    width: 100%;
+    max-width: 617px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  &__line {
+    width: 15px;
+    height: 3px;
+    background-color: $light;
+  }
+
+  &__text {
+    margin-top: 40px;
+    margin-bottom: 209px;
+    font-weight: $font-weight-medium;
+    font-size: 16px;
+    line-height: 160%;
+    
+    &--top {
+      margin-top: 0;
+      margin-bottom: 70px;
+      max-width: 330px;
+      margin-left: auto;
+    }
+  }
+
+  &__title {
+    font-weight: $font-weight-normal;
+    font-size: 74px;
+    line-height: 100.02%;
+    margin-top: 200px;
+  }
+}

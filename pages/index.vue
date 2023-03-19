@@ -3,6 +3,8 @@
     <HomeHero />
     <HomeSlideOne />
     <HomeSlideTwo />
+    <HomeSlideFour />
+    <HomeSlideAbout />
   </div>
 </template>
 
