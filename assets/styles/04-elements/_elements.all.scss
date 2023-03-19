@@ -28,6 +28,6 @@ section {
 }
 
 
-.index-page {
- overflow-x: hidden;
+::-webkit-scrollbar {
+  display: none;
 }
