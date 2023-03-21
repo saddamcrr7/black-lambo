@@ -1,7 +1,18 @@
 <template>
   <div class="o-main-hero">
     <div class="o-main-hero__bg">
-      <img src="~/assets/images/Main-video.jpg" alt="" />
+      <video
+        class="o-main-hero__bg-video"
+        data-poster="~/assets/images/Main-video.jpg"
+        muted=""
+        loop=""
+        autoplay=""
+        id="hero-video"
+        playsinline=""
+        v-lazy-load
+      >
+        <source data-src="https://github.com/saddamcrr7/ap_nuxt/raw/main/hero.mp4"  type="video/mp4"/>
+      </video>
     </div>
     <div class="o-main-hero__container">
       <h1 class="o-main-hero__title">The most exclusive Cypto Club</h1>
@@ -11,18 +22,17 @@
           watch video
         </div>
       </div>
-      
     </div>
     <div class="o-main-hero__event">
-        <div class="o-main-hero__event-text">
-          <p class="o-main-hero__event-sub">Event</p>
-          <p class="o-main-hero__event-title">Win your lambo</p>
-        </div>
-        <div class="o-main-hero__event-image">
-          <img src="~/assets/images/Marciegalo.png" alt="" />
-        </div>
-        <ArrowIcon class="o-main-hero__event-icon"/>
+      <div class="o-main-hero__event-text">
+        <p class="o-main-hero__event-sub">Event</p>
+        <p class="o-main-hero__event-title">Win your lambo</p>
       </div>
+      <div class="o-main-hero__event-image">
+        <img src="~/assets/images/Marciegalo.png" alt="" />
+      </div>
+      <ArrowIcon class="o-main-hero__event-icon" />
+    </div>
   </div>
 </template>
 

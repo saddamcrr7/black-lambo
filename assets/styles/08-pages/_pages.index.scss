@@ -1,8 +1,11 @@
 .p-index {
   height: 100vh;
   width: 100vh;
-
+  will-change: transform;
+  display: flex;
+  
   &__wrapper {
+    flex-shrink: 0;
     display: flex;
     will-change: transform;
   }

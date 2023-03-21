@@ -58,16 +58,28 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@vueuse/nuxt", "@nuxtjs/svg"],
+  modules: ["@vueuse/nuxt", "@nuxtjs/svg", 'nuxt-lazy-load'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    extend (config) {
+      config.module.rules.push({
+        test: /\.(mov)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]',
+          esModule: false
+        }
+      })
+    }   
+  },
   gsap: {
     /* Module Options */
     extraPlugins: {
       scrollTo: true,
       scrollTrigger: true,
       text: true,
+      observer: true
     },
     extraEases: {
       customEase: true,
