@@ -1,6 +1,8 @@
 <template>
   <div>
     <Appheader />
+    <AppheaderMenu />
+    <AppheaderMenuToggler />
     <Nuxt />
   </div>
 </template>

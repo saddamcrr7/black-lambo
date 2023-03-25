@@ -3,7 +3,7 @@
     <div class="o-main-hero__bg">
       <video
         class="o-main-hero__bg-video"
-        data-poster="~/assets/images/Main-video.jpg"
+        poster="~/assets/images/Main-video.jpg"
         muted=""
         loop=""
         autoplay=""
@@ -11,7 +11,7 @@
         playsinline=""
         v-lazy-load
       >
-        <source data-src="https://github.com/saddamcrr7/ap_nuxt/raw/main/hero.mp4"  type="video/mp4"/>
+        <source src="https://github.com/saddamcrr7/ap_nuxt/raw/main/hero.mp4"  type="video/mp4"/>
       </video>
     </div>
     <div class="o-main-hero__container">

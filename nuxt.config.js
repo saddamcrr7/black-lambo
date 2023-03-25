@@ -58,7 +58,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@vueuse/nuxt", "@nuxtjs/svg", 'nuxt-lazy-load'],
+  modules: ["@vueuse/nuxt", "@nuxtjs/svg",],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

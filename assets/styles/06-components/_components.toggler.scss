@@ -1,0 +1,48 @@
+.c-toggler {
+  position: fixed;
+  top: 71px;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1001;
+  mix-blend-mode: difference;
+
+  &__open {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__open-line {
+    width: 100%;
+    height: 2px;
+    background-color: $light;
+    transform-origin: right center;
+  }
+
+  &__close {
+    position: absolute;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    inset: 0;
+  }
+
+  &__close-line {
+    width: 100%;
+    height: 2px;
+    background-color: $light;
+    position: absolute;
+
+    &:first-child {
+      transform: scaleX(0);
+      transform-origin: center top;
+    }
+    &:last-child {
+      transform: scaleX(0);
+      transform-origin: center bottom;
+    }
+  }
+}
