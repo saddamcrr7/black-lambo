@@ -36,7 +36,7 @@
                 </div>
               </li>
               <li class="c-menu__nav-item" data-index="1">
-                <NuxtLink to="/" class="c-menu__nav-link">Collection</NuxtLink>
+                <NuxtLink to="/collection" class="c-menu__nav-link">Collection</NuxtLink>
               </li>
               <li class="c-menu__nav-item" data-index="2">
                 <NuxtLink to="/" class="c-menu__nav-link"
@@ -98,7 +98,6 @@ export default {
             opacity: 0,
             duration: 0.25,
           });
-          console.log(item.dataset);
           if (item.dataset.index == image.dataset.index) {
             gsap.to(image, {
               opacity: 1,

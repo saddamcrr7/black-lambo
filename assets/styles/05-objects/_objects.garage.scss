@@ -1,0 +1,36 @@
+.o-garage {
+  padding-top: 110px;
+  padding-bottom: 446px;
+
+  &__container {
+    @include make-container();
+    max-width: 1746px + $grid-gutter-width;
+  }
+
+  &__title {
+    font-weight: $font-weight-normal;
+    font-size: 74px;
+    line-height: 100.02%;
+    position: relative;
+
+    &::before {
+        content: '';
+      width: 15px;
+      height: 3px;
+      background: $light;
+      position: absolute;
+      top: -60px;
+      left: 0;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 160%;
+    max-width: 1076px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 246px;
+  }
+}

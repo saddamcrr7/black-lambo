@@ -1,0 +1,49 @@
+.o-collection-hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  padding: 125px 0;
+  background-color: $light-grey;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__container {
+    @include make-container();
+    max-width: 1680px + $grid-gutter-width;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__title {
+    color: $dark;
+    font-weight: $font-weight-normal;
+    font-size: 74px;
+    line-height: 100.02%;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -200px;
+        left: 0;
+        width: 15px;
+        height: 3px;
+        background: $dark;
+    }
+  }
+
+  &__text {
+    color: $dark;
+    text-transform: uppercase;
+    font-weight: $font-weight-medium;
+    margin-top: 40px;
+  }
+}

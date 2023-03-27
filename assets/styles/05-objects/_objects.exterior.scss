@@ -1,0 +1,41 @@
+.o-exterior {
+  padding-top: 190px;
+  padding-bottom: 185px;
+  background: $light;
+
+  &__container {
+    @include make-container();
+    max-width: 1680px + $grid-gutter-width;
+  }
+
+  &__content {
+    text-align: center;
+    max-width: 1285px;
+    margin: 0 auto;
+  }
+
+  &__sub {
+    color: $dark;
+    text-transform: uppercase;
+    font-weight: $font-weight-medium;
+    font-size: 20px;
+    line-height: 100.02%;
+  }
+
+  &__title {
+    color: $dark;
+    font-weight: $font-weight-medium;
+    font-size: 74px;
+    line-height: 130%;
+    margin-top: 40px;
+  }
+
+  &__text {
+    color: $dark;
+    font-size: 20px;
+    line-height: 160%;
+    max-width: 580px;
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+}

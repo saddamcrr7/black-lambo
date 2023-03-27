@@ -16,6 +16,12 @@
 export default {
   name: "MenuToggler",
 
+  watch: {
+    $route(to, from) {
+      this.closeMenu()
+    },
+  },
+
   mounted() {
     this.$CustomEase.create("cubic", ".5,.1,0,1");
 
@@ -27,15 +33,14 @@ export default {
       left: rect.right - 30 - this.$refs.menuToggler.clientWidth,
     });
 
-    let isMenuOpen = false;
+    this.isMenuOpen = false;
 
     this.$refs.menuToggler.addEventListener("click", () => {
-      if (!isMenuOpen) {
+      if (!this.isMenuOpen ) {
         this.openMenu();
-        isMenuOpen = true;
       } else {
         this.closeMenu();
-        isMenuOpen = false;
+        
       }
     });
   },
@@ -53,6 +58,7 @@ export default {
       const closeLine = document.querySelectorAll(".c-toggler__close-line");
       const gsap = this.$gsap;
       const tl = gsap.timeline();
+      this.isMenuOpen = true;
 
       gsap.set(closeLine[0], { rotation: 45 });
       gsap.set(closeLine[1], { rotation: -45 });
@@ -148,6 +154,7 @@ export default {
       const closeLine = document.querySelectorAll(".c-toggler__close-line");
       const gsap = this.$gsap;
       const tl = gsap.timeline();
+      this.isMenuOpen = false;
 
       gsap.set(closeLine[0], { rotation: 45 });
       gsap.set(closeLine[1], { rotation: -45 });

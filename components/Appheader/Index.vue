@@ -4,7 +4,7 @@
       <NuxtLink to="/" class="o-header__brand">
         <Logo></Logo>
       </NuxtLink>
-      <Socials />
+      <Socials  v-if="isIndex"/>
     </div>
   </div>
 </template>
@@ -15,7 +15,25 @@ import Logo from "~/assets/svgs/logo.svg?inline";
 export default {
   name: "AppHeader",
 
-  mounted() {},
+  data() {
+    return {
+      isIndex : ''
+    }
+  },
+
+  watch: {
+    $route(to, from) {
+      if (to.name == "index") {
+        this.isIndex = true
+      }else {
+        this.isIndex = false
+      }
+    },
+  },
+
+  mounted() {
+   
+  },
 
   methods: {},
 

@@ -3,7 +3,6 @@
     <div class="o-main-hero__bg">
       <video
         class="o-main-hero__bg-video"
-        poster="~/assets/images/Main-video.jpg"
         muted=""
         loop=""
         autoplay=""

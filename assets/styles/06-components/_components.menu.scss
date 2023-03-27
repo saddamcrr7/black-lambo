@@ -16,6 +16,7 @@
     position: relative;
     height: 100%;
     overflow: hidden;
+    pointer-events: none;
   }
 
   &__images-inner {
