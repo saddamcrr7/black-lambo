@@ -1,0 +1,32 @@
+.o-contact {
+  padding: 120px 0;
+  margin-top: 140px;
+  background-color: $dark-grey;
+
+  &__container {
+    @include make-container();
+    max-width: 1680px + $grid-gutter-width;
+  }
+
+  &__row {
+    display: flex;
+    max-width: 1197px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 74px;
+    line-height: 130%;
+    font-weight: $font-weight-medium;
+  }
+
+  &__sub {
+    line-height: 100.02%;
+  }
+
+  &__info {
+    font-size: 36px;
+    line-height: 130%;
+  }
+}

@@ -1,0 +1,12 @@
+.c-address-slider {
+    margin-top: 188px;
+    
+    &__wrapper {
+        display: flex;
+        gap: 0 160px; 
+    }
+
+    &__item {
+        max-width: 262px;
+    }
+}

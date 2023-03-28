@@ -1,0 +1,55 @@
+.c-breadcumb {
+  padding-top: 133px;
+  padding-bottom: 100px;
+
+  &__container {
+    @include make-container();
+    max-width: 1106px + $grid-gutter-width;
+  }
+
+  &__cta {
+    font-weight: $font-weight-medium;
+    line-height: 160%;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-weight: $font-weight-normal;
+    font-size: 74px;
+    line-height: 100.02%;
+    margin-top: 30px;
+  }
+
+  &__row {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__nav {
+    display: flex;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 48px;
+    margin-left: 48px;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 2px;
+        height: 35px;
+        background-color: rgba(246, 245, 242, 0.2);
+    }
+  }
+
+  &__nav-item {
+    font-weight: $font-weight-medium;
+    font-size: 20px;
+    line-height: 100.02%;
+    &+& {
+        margin-left: 35px;
+    }
+  }
+}

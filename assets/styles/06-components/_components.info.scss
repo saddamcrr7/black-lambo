@@ -1,0 +1,25 @@
+.c-info {
+    width: 100%;
+    max-width: 440px;
+
+    &__date {
+        color: rgba($light, 0.5);
+        font-size: 18px;
+        line-height: 130%;
+    }
+
+    &__text {
+        font-size: 20px;
+        line-height: 130%;
+        margin-top: 25px;
+    }
+
+    &__cta {
+        display: flex;
+        align-items: center;
+        color: rgba($light, 0.5);
+        font-size: 18px;
+        line-height: 130%;
+        margin-top: 25px;
+    }
+}

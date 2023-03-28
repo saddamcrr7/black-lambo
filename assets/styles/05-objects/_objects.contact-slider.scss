@@ -1,0 +1,24 @@
+.o-contact-slider {
+  padding-bottom: 100px;
+  background-color: $dark;
+
+  &__container {
+    @include make-container();
+    max-width: 1680px + $grid-gutter-width;
+  }
+
+  &__arrows {
+    display: flex;
+    gap: 15px;
+    margin-top: 50px;
+  }
+
+  &__arrow {
+    svg  {
+      path{
+          fill: rgba(246, 245, 242, 0.3) !important;
+          fill-opacity: 1 !important;
+      }
+    }
+  }
+}

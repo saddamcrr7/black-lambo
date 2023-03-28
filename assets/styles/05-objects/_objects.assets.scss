@@ -1,0 +1,35 @@
+.o-assets {
+  padding-top: 100px;
+  padding-bottom: 185px;
+
+  &__container {
+    @include make-container();
+    max-width: 1440px + $grid-gutter-width;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__title {
+    font-size: 48px;
+    line-height: 130%;
+  }
+
+  &__sub {
+    color: rgba($light, 0.5);
+    font-size: 16px;
+    line-height: 130%;
+    text-transform: uppercase;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    flex-wrap: wrap;
+    gap: 45px;
+    margin-top: 100px;
+  }
+}

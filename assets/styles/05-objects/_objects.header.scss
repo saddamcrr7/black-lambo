@@ -11,7 +11,7 @@
     position: relative;
     width: 100%;
     max-width: 1680px + $grid-gutter-width;
-    padding: 30px;
+    padding: 30px $grid-gutter-width 0 $grid-gutter-width;
     margin: 0 auto;
   }
 }

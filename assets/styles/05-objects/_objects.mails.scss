@@ -1,0 +1,38 @@
+.o-mails {
+  padding-top: 250px;
+  padding-bottom: 195px;
+
+  &__container {
+    @include make-container();
+
+    max-width: 1444px;
+  }
+
+  &__title {
+    font-weight: $font-weight-normal;
+    font-size: 48px;
+    line-height: 130%;
+  }
+
+  &__items {
+    margin-top: 140px;
+  }
+
+  &__item {
+    & + & {
+      margin-top: 35px;
+    }
+  }
+
+  &__sub {
+    font-size: 14px;
+    line-height: 130%;
+    text-transform: uppercase;
+  }
+
+  &__address {
+    font-size: 36px;
+    line-height: 130%;
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,17 @@
+.o-informations {
+  padding-bottom: 150px;
+
+  &__container {
+    @include make-container();
+    max-width: 1446px + $grid-gutter-width;
+  }
+
+  &__title {
+    font-size: 48px;
+    line-height: 130%;
+  }
+
+  &__tab {
+    margin-top: 100px;
+  }
+}

@@ -1,0 +1,39 @@
+.c-tab {
+  &__nav {
+    display: flex;
+    gap: 0 55px;
+  }
+
+  &__nav-item {
+    width: 100%;
+    max-width: 175px;
+    font-size: 18px;
+    line-height: 130%;
+    padding-bottom: 18px;
+    border-bottom: 2px solid $light;
+    opacity: 0.5;
+
+    &.is-active {
+        opacity: 1;
+    }
+  }
+
+  &__body {
+    position: relative;
+    margin-top: 120px;
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 75px 60px;
+  }
+
+  &__item {
+    display: none;
+
+    &:first-child {
+        display: block;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+.c-asset {
+  height: 470px;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  padding: 40px;
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    background: #2d1717;
+  }
+
+  &__row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__title {
+    font-size: 20px;
+    line-height: 130%;
+  }
+
+  &__sub {
+    color: rgba($light, 0.7);
+    font-size: 14px;
+    line-height: 130%;
+    margin-top: 5px;
+  }
+
+  &__download {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $super-dark;
+    border-radius: 30px;
+  }
+}

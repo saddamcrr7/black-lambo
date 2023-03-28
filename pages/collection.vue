@@ -6,7 +6,8 @@
       <CollectionGallery />
       <CollectionExterior />
       <CollectionGarage />
-      <CollectionWin />
+      <Future />
+      <AppFooter />
     </div>
   </div>
 </template>

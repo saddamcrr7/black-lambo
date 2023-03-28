@@ -1,0 +1,64 @@
+.o-inside-project {
+  padding-top: 150px;
+  padding-bottom: 141px;
+
+  &__container {
+    @include make-container();
+    max-width: 1440px + $grid-gutter-width;
+  }
+
+  &__title {
+    font-weight: $font-weight-normal;
+    font-size: 48px;
+    line-height: 130%;
+  }
+
+  &__slider {
+    margin-top: 25px;
+    overflow-x: hidden;
+  }
+
+  &__slider-wrapper {
+    display: flex;
+    will-change: transform;
+  }
+
+  &__slider-item {
+    text-align: right;
+  }
+
+  &__slider-text {
+    color: rgba(217, 217, 217, 0.3);
+    font-weight: $font-weight-medium;
+    font-size: 350px;
+    line-height: 100.02%;
+  }
+
+  &__slider-sub {
+    font-weight: $font-weight-medium;
+    font-size: 16px;
+    line-height: 100.02%;
+    width: 100%;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+
+  &__slider-arrows {
+    display: flex;
+    margin-top: 125px;
+  }
+
+  &__slider-arrow {
+
+    &+& {
+        margin-left: 15px;
+    }
+
+    svg  {
+        path{
+            fill: rgba(246, 245, 242, 0.3) !important;
+            fill-opacity: 1 !important;
+        }
+      }
+    }
+}

@@ -1,0 +1,21 @@
+.c-title-slider {
+  &__wrapper {
+    position: relative;
+    height: 350px;
+  }
+
+  &__text {
+    position: absolute;
+    font-weight: $font-weight-medium;
+    font-size: 350px;
+    line-height: 100.02%;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    opacity: 0;
+
+    &:first-child {
+        opacity: 1;
+    }
+  }
+}

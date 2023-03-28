@@ -46,16 +46,16 @@
             </ul>
             <ul class="c-menu__snav">
               <li class="c-menu__snav-item">
-                <NuxtLink to="/" class="c-menu__snav-link">media room</NuxtLink>
+                <NuxtLink to="/media" class="c-menu__snav-link">media room</NuxtLink>
               </li>
               <li class="c-menu__snav-item">
                 <NuxtLink to="/" class="c-menu__snav-link">about</NuxtLink>
               </li>
               <li class="c-menu__snav-item">
-                <NuxtLink to="/" class="c-menu__snav-link">Careers</NuxtLink>
+                <NuxtLink to="/careers" class="c-menu__snav-link">Careers</NuxtLink>
               </li>
               <li class="c-menu__snav-item">
-                <NuxtLink to="/" class="c-menu__snav-link">contact</NuxtLink>
+                <NuxtLink to="/contact" class="c-menu__snav-link">contact</NuxtLink>
               </li>
             </ul>
           </div>
