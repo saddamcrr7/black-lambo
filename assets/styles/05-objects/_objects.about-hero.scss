@@ -1,0 +1,35 @@
+.o-about-hero {
+  height: 770px;
+  position: relative;
+  padding: 145px 0;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__container {
+    @include make-container();
+    max-width: 1680px + $grid-gutter-width;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 1;
+  }
+
+  &__title {
+    font-weight: $font-weight-medium;
+    font-size: 74px;
+    line-height: 130%;
+  }
+}

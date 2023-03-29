@@ -1,7 +1,9 @@
 .c-title-slider {
+  
   &__wrapper {
     position: relative;
     height: 350px;
+    will-change: transform;
   }
 
   &__text {
@@ -13,9 +15,10 @@
     left: 0;
     white-space: nowrap;
     opacity: 0;
+    will-change: transform;
 
     &:first-child {
-        opacity: 1;
+      opacity: 1;
     }
   }
 }

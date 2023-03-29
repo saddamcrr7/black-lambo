@@ -1,0 +1,41 @@
+.o-about-content {
+  padding-top: 175px;
+
+  &__container {
+    @include make-container();
+    max-width: 1440px + $grid-gutter-width;
+    padding-bottom: 125px;
+    border-bottom: 1px solid rgba($light, 50%);
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__col {
+    @include make-col();
+
+    &--left {
+      max-width: 501px;
+    }
+
+    &--right {
+      max-width: 562px;
+      padding-top: 255px;
+    }
+  }
+
+  &__sub {
+    font-size: 36px;
+    line-height: 130%;
+  }
+
+  &__text {
+    font-size: 20px;
+    line-height: 130%;
+    & + & {
+      margin-top: 45px;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.o-featured {
+  padding-top: 200px;
+
+  &__container {
+    @include make-container();
+    max-width: 1440px + $grid-gutter-width;
+  }
+
+  &__title {
+    font-weight: $font-weight-normal;
+    font-size: 48px;
+    line-height: 130%;
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 84px;
+    gap: 0 20%;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 20vh;
+
+    img {
+        width: 50%;
+    }
+  }
+}

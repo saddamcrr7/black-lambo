@@ -1,0 +1,32 @@
+.o-partners {
+  padding-top: 85px;
+  padding-bottom: 194px;
+
+  &__container {
+    @include make-container();
+    max-width: 1440px;
+  }
+
+  &__title {
+    font-weight: $font-weight-normal;
+    font-size: 48px;
+    line-height: 130%;
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 116px;
+  }
+
+  &__item {
+    width: 341px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #333333;
+    border: 5px solid #171717;
+  }
+}

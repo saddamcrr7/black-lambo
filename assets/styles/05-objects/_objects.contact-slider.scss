@@ -1,6 +1,7 @@
 .o-contact-slider {
   padding-bottom: 100px;
   background-color: $dark;
+  overflow: hidden;
 
   &__container {
     @include make-container();

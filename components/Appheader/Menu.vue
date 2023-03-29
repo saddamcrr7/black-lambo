@@ -49,7 +49,7 @@
                 <NuxtLink to="/media" class="c-menu__snav-link">media room</NuxtLink>
               </li>
               <li class="c-menu__snav-item">
-                <NuxtLink to="/" class="c-menu__snav-link">about</NuxtLink>
+                <NuxtLink to="/about" class="c-menu__snav-link">about</NuxtLink>
               </li>
               <li class="c-menu__snav-item">
                 <NuxtLink to="/careers" class="c-menu__snav-link">Careers</NuxtLink>

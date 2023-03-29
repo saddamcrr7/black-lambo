@@ -1,0 +1,98 @@
+.o-timeline {
+  padding-top: 185px;
+  padding-bottom: 110px;
+  overflow: hidden;
+
+  &__container {
+    @include make-container();
+    max-width: 1440px;
+  }
+
+  &__title {
+    font-weight: $font-weight-normal;
+    font-size: 48px;
+    line-height: 130%;
+  }
+
+  &__slider {
+    position: relative;
+  }
+
+  &__slider-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) -62.4%,
+      rgba($dark, 1) 75%
+    );
+    will-change: transform;
+  }
+
+  &__slider-wrapper {
+    display: flex;
+  }
+
+  &__item {
+    & + & {
+      margin-left: 38px;
+    }
+  }
+
+  &__date {
+    font-weight: $font-weight-medium;
+    font-size: 350px;
+    line-height: 100.02%;
+  }
+
+  &__events {
+    margin-top: 135px;
+  }
+
+  &__event {
+    & + & {
+      margin-top: 40px;
+    }
+  }
+
+  &__event-date {
+    color: rgba($light, 0.5);
+    font-weight: $font-weight-medium;
+    font-size: 14px;
+    line-height: 100.02%;
+  }
+
+  &__event-text {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 100.02%;
+    text-transform: uppercase;
+  }
+
+  &__slider-arrows {
+    display: flex;
+    gap: 15px;
+    position: absolute;
+    left: 0;
+  }
+
+  &__slider-arrow {
+    transition: transform 0.25s ease-out;
+    
+    svg {
+      path {
+        fill: rgba(246, 245, 242, 0.3) !important;
+        fill-opacity: 1 !important;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:active {
+      transform: scale(1.1);
+    }
+  }
+}
