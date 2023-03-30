@@ -16,6 +16,7 @@ export default {
 
   mounted() {
     this.animations();
+    document.querySelector("body").classList.add("home");
   },
 
   methods: {
@@ -146,7 +147,6 @@ export default {
       //     }
 
       //     console.log(obsc1.isEnabled);
-
 
       //     if (detalisIndex == 2 && !obsc1.isEnabled && op == 1) {
 
