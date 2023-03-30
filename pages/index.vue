@@ -37,6 +37,7 @@ export default {
       let isScrolling;
 
       const obsc1 = Observer.create({
+        target: window, 
         type: "touch,scroll,pointer",
         axis: "x",
         onChangeX: (self) => {
@@ -61,6 +62,7 @@ export default {
       });
 
       const obsc2 = Observer.create({
+        target: window, 
         type: "wheel,touch",
         onChangeY: (self) => {
           scrollDelta += self.deltaY;
@@ -78,7 +80,6 @@ export default {
             immediateRender: true,
 
             onComplete: () => {
-              console.log("e");
               isScrolling = false;
             },
           });
@@ -92,13 +93,10 @@ export default {
       let obisEnbale2 = true;
 
       const obsc3 = Observer.create({
+        target: window, 
         type: "wheel,touch,scroll,pointer",
         onDown: (self) => {
-          if (
-            slider4rect.x <= scrollDelta &&
-            obisEnbale1 &&
-            isScrolling == true
-          ) {
+          if (slider4rect.x <= scrollDelta && obisEnbale1) {
             obsc1.disable();
             obsc2.disable();
             obsc3.disable();
@@ -111,8 +109,7 @@ export default {
           if (
             slider4rect.x + slider4rect.width >=
               scrollDelta + slider4rect.width &&
-            obisEnbale2 &&
-            isScrolling == true
+            obisEnbale2
           ) {
             obsc1.disable();
             obsc2.disable();
@@ -140,7 +137,7 @@ export default {
 
       gsap.set(vsiEl[0], { opacity: 1 });
 
-      function scrollDetails(dtp, index) {
+      function scrollDetails(dtp, index, drec) {
         animating = true;
 
         gsap.to(vsiEl, { opacity: 0.2, immediateRender: true });
@@ -150,12 +147,12 @@ export default {
           overright: true,
         });
 
-       gsap.to(".o-slide-four__detalis-items", {
+        gsap.to(".o-slide-four__detalis-items", {
           y: dtp,
           immediateRender: true,
           onComplete: () => {
             animating = false;
-            if (dt == 2) {
+            if (dt == vsiEl.length - 1 && drec == "down") {
               if (obisEnbale == false) {
                 obsc1.enable();
                 obsc2.enable();
@@ -168,6 +165,7 @@ export default {
       }
 
       Observer.create({
+        target: window, 
         type: "wheel,touch,pointer",
         onDown: (self) => {
           if (obsc3.isEnabled == false && isScrolling == false) {
@@ -184,7 +182,7 @@ export default {
               }
 
               !animating &&
-                scrollDetails(-(dt * vsiEl[0].clientHeight), detalisIndex);
+                scrollDetails(-(dt * vsiEl[0].clientHeight), dt, "down");
             }
             gsap.to(vsidtls, { opacity: op });
           }
@@ -221,12 +219,7 @@ export default {
               },
             });
             !animating &&
-              scrollDetails(-(dt * vsiEl[0].clientHeight), detalisIndex);
-            if (op == 0) {
-              // obsc1.enable();
-              // obsc2.enable();
-              // obsc3.enable();
-            }
+              scrollDetails(-(dt * vsiEl[0].clientHeight), dt, "up");
           }
         },
       });

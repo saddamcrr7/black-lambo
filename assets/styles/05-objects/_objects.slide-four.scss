@@ -52,11 +52,17 @@
     top: 40%;
     right: 0;
     opacity: 0;
+    will-change: transform;
+  }
+
+  &__detalis-items {
+    will-change: transform;
   }
 
   &__detalis-item {
     text-align: right;
     opacity: 0.2;
+    will-change: transform;
   }
 
   &__detalis-title {

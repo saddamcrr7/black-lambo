@@ -32,6 +32,18 @@
             <h3 class="o-slide-four__detalis-title">Chance</h3>
             <p class="o-slide-four__detalis-sub">to win a lambo</p>
           </div>
+          <div class="o-slide-four__detalis-item">
+            <h3 class="o-slide-four__detalis-title">5</h3>
+            <p class="o-slide-four__detalis-sub">models</p>
+          </div>
+          <div class="o-slide-four__detalis-item">
+            <h3 class="o-slide-four__detalis-title">5000</h3>
+            <p class="o-slide-four__detalis-sub">nfts</p>
+          </div>
+          <div class="o-slide-four__detalis-item">
+            <h3 class="o-slide-four__detalis-title">Chance</h3>
+            <p class="o-slide-four__detalis-sub">to win a lambo</p>
+          </div>
         </div>
       </div>
     </div>
