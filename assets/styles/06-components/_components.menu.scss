@@ -5,6 +5,7 @@
   z-index: 1000;
   transform: translateX(65.83333333%);
   will-change: transform;
+  pointer-events: none;
 
   &__row {
     display: flex;

@@ -17,8 +17,8 @@ body {
     overflow: hidden;
   }
 
-  .home {
-    overflow: hidden;
+  &.home {
+    overflow: hidden !important;
   }
 
 }

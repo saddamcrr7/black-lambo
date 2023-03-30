@@ -67,6 +67,7 @@ export default {
         x: 0,
         ease: "cubic",
         duration: 1.5,
+        pointerEvents: 'auto'
       })
         .to(
           imageInner,
@@ -163,6 +164,7 @@ export default {
         x: menu.clientWidth - imageInner.clientWidth,
         ease: "cubic",
         duration: 1.5,
+        pointerEvents: 'none'
       })
         .to(
           imageInner,
