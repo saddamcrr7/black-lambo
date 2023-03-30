@@ -25,13 +25,10 @@ export default {
   mounted() {
     this.$CustomEase.create("cubic", ".5,.1,0,1");
 
-    const rect = document
-      .querySelector(".o-header__container")
-      .getBoundingClientRect();
-    const gsap = this.$gsap;
-    gsap.set(this.$refs.menuToggler, {
-      left: rect.right - 30 - this.$refs.menuToggler.clientWidth,
-    });
+    window.addEventListener('load', () => this.togglerPosition() )
+    window.addEventListener('resize', () => this.togglerPosition() )
+
+   
 
     this.isMenuOpen = false;
 
@@ -46,6 +43,15 @@ export default {
   },
 
   methods: {
+    togglerPosition() {
+        const rect = document
+        .querySelector(".o-header__container")
+        .getBoundingClientRect();
+      const gsap = this.$gsap;
+      gsap.set(this.$refs.menuToggler, {
+        left: rect.right - 68 - this.$refs.menuToggler.clientWidth,
+      });
+    },
     openMenu() {
       const menu = document.querySelector(".c-menu");
       const imageInner = menu.querySelector(".c-menu__images-inner");

@@ -16,6 +16,7 @@ export default {
 
   mounted() {
     this.animations();
+    document.querySelector("html").classList.add("home");
     document.querySelector("body").classList.add("home");
   },
 

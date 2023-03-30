@@ -1,3 +1,8 @@
 html {
   scroll-behavior: unset !important;
+
+  &.home {
+    overflow: hidden !important;
+  }
+
 }

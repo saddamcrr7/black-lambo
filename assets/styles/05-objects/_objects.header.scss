@@ -10,8 +10,16 @@
   &__container {
     position: relative;
     width: 100%;
-    max-width: 1680px + $grid-gutter-width;
-    padding: 30px $grid-gutter-width 0 $grid-gutter-width;
+    max-width: 1920px;
+    padding: 1.75rem 4.19rem;
     margin: 0 auto;
+  }
+
+  &__brand {
+    svg {
+      max-width: 10rem;
+      height: 4rem;
+      display: block;
+    }
   }
 }

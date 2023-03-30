@@ -25,7 +25,7 @@
     <div class="o-main-hero__event">
       <div class="o-main-hero__event-text">
         <p class="o-main-hero__event-sub">Event</p>
-        <p class="o-main-hero__event-title">Win your lambo</p>
+        <p class="o-main-hero__event-title">Win your <br> lambo</p>
       </div>
       <div class="o-main-hero__event-image">
         <img src="~/assets/images/Marciegalo.png" alt="" />

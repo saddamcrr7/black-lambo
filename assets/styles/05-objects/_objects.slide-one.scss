@@ -20,9 +20,8 @@
     width: 100%;
     margin: 0 auto;
     text-align: center;
-    font-weight: $font-weight-normal;
-    font-size: 74px;
-    line-height: 130%;
+    font-size: 4rem;
+    line-height: 4rem;
   }
 
   &__image {
@@ -40,8 +39,7 @@
 
   &__sub {
     text-transform: uppercase;
-    font-size: 16px;
-    line-height: 100.02%;
+    font-size: .94rem;
     margin-top: 40px;
   }
 
@@ -49,8 +47,7 @@
     margin-top: 80px;
     padding: 19px 56px;
     font-weight: $font-weight-medium;
-    font-size: 16px;
-    line-height: 160%;
+    font-size: .94rem;
     border: 2px solid $light;
   }
 }

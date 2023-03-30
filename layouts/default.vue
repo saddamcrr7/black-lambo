@@ -14,9 +14,11 @@ export default {
     $route(to, from) {
       console.log(to);
       if (to.name == "index") {
-        document.body.classList.add("home");
+        document.querySelector("html").classList.add("home");
+        document.querySelector("body").classList.add("home");
       } else {
-        document.body.classList.remove("home");
+        document.querySelector("html").classList.remove("home");
+        document.querySelector("body").classList.remove("home");
       }
     },
   },

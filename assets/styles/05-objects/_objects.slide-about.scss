@@ -1,13 +1,13 @@
 .o-slide-about {
   width: 100vw;
   height: 100vh;
-  padding-top: 253px;
-  padding-bottom: 45px;
+  padding-top: 6.44rem;
+  padding-bottom: 2.5rem;
   background: $light;
 
   &__container {
-    @include make-container();
-    max-width: 1680px + $grid-gutter-width;
+    padding-left: 2.13rem;
+    padding-right: 13.38rem;
     height: 100%;
   }
 
@@ -21,17 +21,18 @@
     border-left: 1px solid $dark;
 
     &--left {
-      max-width: 533px;
+      width: 40rem;
       height: 100%;
       display: flex;
       flex-direction: column;
-      padding: 0 45px;
+      justify-content: space-between;
+      padding-left: 2rem;
+      padding-right: 2rem;
     }
 
     &--right {
-      max-width: 1075px;
-      padding-left: 50px;
-      padding-right: 60px;
+      max-width: 100%;
+      padding-left: 44px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -42,13 +43,14 @@
     display: flex;
     justify-content: space-between;
     color: $dark;
-    font-weight: $font-weight-normal;
-    font-size: 48px;
-    line-height: 100.02%;
+    font-size: 2.63rem;
+    margin-top: 0.44rem;
+    margin-bottom: 0.44rem;
 
     > svg {
-      width: 22px;
-      height: 22px;
+      width: 1.13rem;
+      height: 1.13rem;
+      margin-top: 2.1rem;
       path {
         stroke: $dark;
       }
@@ -60,20 +62,18 @@
     font-weight: $font-weight-medium;
     font-size: 20px;
     line-height: 100.02%;
-    margin-top: 20px;
   }
 
   &__text {
     color: rgba($dark, 0.7);
-    font-size: 20px;
-    line-height: 160%;
-    margin-top: 50px;
+    font-size: 1.13rem;
+    margin-top: 2.19rem;
   }
 
   &__image {
     margin-top: 50px;
-    width: 100%;
-    height: 370px;
+    max-width: 24.06rem;
+    height: 18.75rem;
     overflow: hidden;
 
     > img {
@@ -88,25 +88,26 @@
 
   &__cta {
     display: block;
-    padding-bottom: 45px;
+    padding-bottom: 2.19rem;
     border-bottom: 1px solid $dark;
 
     & + & {
-      margin-top: 45px;
+      margin-top: .44rem;
     }
   }
 
   &__cta-title {
     color: $dark;
-    font-size: 48px;
+    font-size: 2.63rem;
+    line-height: 63px;
     display: flex;
     justify-content: space-between;
-    line-height: 100.02%;
   }
 
   &__cta-icon {
-    width: 22px;
-    height: 22px;
+    width: 1.13rem;
+    height: 1.13rem;
+    margin-top: 1.5rem;
     path {
       stroke: $dark;
     }
@@ -114,9 +115,8 @@
 
   &__cta-sub {
     color: $dark;
-    font-size: 20px;
-    line-height: 160%;
-    margin-top: 20px;
+    font-size: 1.13rem;
+    margin-top: 0.44rem;
   }
 
   &__socials {
@@ -124,23 +124,27 @@
 
   &__socials-title {
     color: $dark;
-    font-size: 20px;
-    line-height: 160%;
+    font-size: 1.13rem;
   }
 
   &__socials-list {
     display: flex;
+    gap: 1.81rem;
     padding-left: 0;
     margin-bottom: 0;
-    margin-top: 45px;
+    margin-top: 2.19rem;
   }
 
   &__socials-item {
-    & + * {
-      margin-left: 45px;
-    }
-    svg path {
-      fill: $dark;
+  
+    svg {
+      width: 1.06rem;
+      height: 1.06rem;
+      display: block;
+      
+      path {
+        fill: $dark;
+      }
     }
   }
 }

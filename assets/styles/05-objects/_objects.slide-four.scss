@@ -31,8 +31,7 @@
     margin-top: 40px;
     margin-bottom: 209px;
     font-weight: $font-weight-medium;
-    font-size: 16px;
-    line-height: 160%;
+    font-size: .94rem;
 
     &--top {
       margin-top: 0;
@@ -43,9 +42,8 @@
   }
 
   &__title {
-    font-weight: $font-weight-normal;
-    font-size: 74px;
-    line-height: 100.02%;
+    font-size: 4rem;
+    line-height: 4rem;
     margin-top: 200px;
   }
 
