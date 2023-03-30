@@ -49,7 +49,7 @@
 
   &__detalis {
     position: absolute;
-    top: 40%;
+    top: 30%;
     right: 0;
     opacity: 0;
     will-change: transform;
@@ -63,6 +63,7 @@
     text-align: right;
     opacity: 0.2;
     will-change: transform;
+    padding: 5rem 0;
   }
 
   &__detalis-title {

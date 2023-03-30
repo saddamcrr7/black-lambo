@@ -15,9 +15,12 @@ export default {
   name: "IndexPage",
 
   mounted() {
-    this.animations();
     document.querySelector("html").classList.add("home");
     document.querySelector("body").classList.add("home");
+
+    setTimeout(()=> {
+      this.animations();
+    }, 1000)
   },
 
   methods: {
@@ -37,7 +40,7 @@ export default {
       let isScrolling;
 
       const obsc1 = Observer.create({
-        target: window, 
+        target: '.p-index',
         type: "touch,scroll,pointer",
         axis: "x",
         onChangeX: (self) => {
@@ -62,7 +65,7 @@ export default {
       });
 
       const obsc2 = Observer.create({
-        target: window, 
+        target: '.p-index',
         type: "wheel,touch",
         onChangeY: (self) => {
           scrollDelta += self.deltaY;
@@ -93,7 +96,7 @@ export default {
       let obisEnbale2 = true;
 
       const obsc3 = Observer.create({
-        target: window, 
+        target: '.p-index',
         type: "wheel,touch,scroll,pointer",
         onDown: (self) => {
           if (slider4rect.x <= scrollDelta && obisEnbale1) {
@@ -102,6 +105,13 @@ export default {
             obsc3.disable();
             obisEnbale1 = false;
             obisEnbale2 = true;
+            scrollDelta = innerWidth * 3
+            gsap.to(wrapper, {
+              x: -innerWidth * 3,
+              ease: "power4.out",
+              duration: 1.5,
+              immediateRender: true,
+            });
           }
         },
 
@@ -116,6 +126,13 @@ export default {
             obsc3.disable();
             obisEnbale2 = false;
             obisEnbale1 = true;
+            scrollDelta = innerWidth * 3
+            gsap.to(wrapper, {
+              x: -innerWidth * 3,
+              ease: "power4.out",
+              duration: 1.5,
+              immediateRender: true,
+            });
           }
         },
 
@@ -129,8 +146,7 @@ export default {
 
       let op = 0.1;
       let dt = 0;
-      let animating,
-        detalisIndex = 0;
+      let animating;
 
       const vsiEl = document.querySelectorAll(".o-slide-four__detalis-item");
       const vsidtls = document.querySelectorAll(".o-slide-four__detalis");
@@ -165,7 +181,7 @@ export default {
       }
 
       Observer.create({
-        target: window, 
+        target: '.p-index',
         type: "wheel,touch,pointer",
         onDown: (self) => {
           if (obsc3.isEnabled == false && isScrolling == false) {
