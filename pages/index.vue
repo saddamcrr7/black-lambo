@@ -34,8 +34,9 @@ export default {
 
       let scrollDelta = 0;
 
+      let isScrolling;
+
       const obsc1 = Observer.create({
-        target: ".p-index",
         type: "touch,scroll,pointer",
         axis: "x",
         onChangeX: (self) => {
@@ -46,17 +47,20 @@ export default {
           if (scrollDelta > innerWidth * 4) {
             scrollDelta = innerWidth * 4;
           }
+          isScrolling = true;
           gsap.to(wrapper, {
             x: -scrollDelta,
             ease: "power4.out",
             duration: 2,
             immediateRender: true,
+            onComplete: () => {
+              isScrolling = false;
+            },
           });
         },
       });
 
       const obsc2 = Observer.create({
-        target: ".p-index",
         type: "wheel,touch",
         onChangeY: (self) => {
           scrollDelta += self.deltaY;
@@ -66,150 +70,166 @@ export default {
           if (scrollDelta > innerWidth * 4) {
             scrollDelta = innerWidth * 4;
           }
+          isScrolling = true;
           gsap.to(wrapper, {
             x: -scrollDelta,
             ease: "power4.out",
             duration: 2,
             immediateRender: true,
+
+            onComplete: () => {
+              console.log("e");
+              isScrolling = false;
+            },
           });
         },
       });
 
-      // const slider4rect = this.$refs.slide4.$el.getBoundingClientRect();
+      const slider4rect = this.$refs.slide4.$el.getBoundingClientRect();
 
-      // const obsc3 = Observer.create({
-      //   target: ".p-index",
-      //   type: "wheel,touch,scroll,pointer",
-      //   onDown: (self) => {
-      //     if (slider4rect.x <= scrollDelta) {
-      //       obsc1.disable();
-      //       obsc2.disable();
-      //       obsc3.disable();
-      //     }
-      //   },
+      let obisEnbale = true;
+      let obisEnbale1 = true;
+      let obisEnbale2 = true;
 
-      //   onUp: (self) => {
-      //     if (
-      //       slider4rect.x + slider4rect.width >=
-      //       scrollDelta + slider4rect.width
-      //     ) {
-      //       obsc1.disable();
-      //       obsc2.disable();
-      //       obsc3.disable();
-      //     }
-      //   },
-      // });
+      const obsc3 = Observer.create({
+        type: "wheel,touch,scroll,pointer",
+        onDown: (self) => {
+          if (
+            slider4rect.x <= scrollDelta &&
+            obisEnbale1 &&
+            isScrolling == true
+          ) {
+            obsc1.disable();
+            obsc2.disable();
+            obsc3.disable();
+            obisEnbale1 = false;
+            obisEnbale2 = true;
+          }
+        },
 
-      // let op = 0.1;
-      // let dt = 0;
-      // let animating,
-      //   detalisIndex = 0;
+        onUp: (self) => {
+          if (
+            slider4rect.x + slider4rect.width >=
+              scrollDelta + slider4rect.width &&
+            obisEnbale2 &&
+            isScrolling == true
+          ) {
+            obsc1.disable();
+            obsc2.disable();
+            obsc3.disable();
+            obisEnbale2 = false;
+            obisEnbale1 = true;
+          }
+        },
 
-      // const vsiEl = document.querySelectorAll(".o-slide-four__detalis-item");
+        onDisable: () => {
+          obisEnbale = false;
+        },
+        onEnable: () => {
+          obisEnbale = true;
+        },
+      });
 
-      // gsap.set(vsiEl[0], { opacity: 1 });
+      let op = 0.1;
+      let dt = 0;
+      let animating,
+        detalisIndex = 0;
 
-      // function scrollDetails(dtp, index) {
-      //   animating = true;
+      const vsiEl = document.querySelectorAll(".o-slide-four__detalis-item");
+      const vsidtls = document.querySelectorAll(".o-slide-four__detalis");
 
-      //   gsap.to(vsiEl, { opacity: 0.2, immediateRender: true });
-      //   gsap.to(vsiEl[index], {
-      //     opacity: 1,
-      //     immediateRender: true,
-      //     overright: true,
-      //   });
+      gsap.set(vsiEl[0], { opacity: 1 });
 
-      //   let tl = gsap.timeline({
-      //     onComplete: () => {
-      //       animating = false;
-      //     },
-      //   });
+      function scrollDetails(dtp, index) {
+        animating = true;
 
-      //   tl.to(".o-slide-four__detalis-items", {
-      //     y: dtp,
-      //   });
-      // }
+        gsap.to(vsiEl, { opacity: 0.2, immediateRender: true });
+        gsap.to(vsiEl[index], {
+          opacity: 1,
+          immediateRender: true,
+          overright: true,
+        });
 
-      // Observer.create({
-      //   target: ".p-index",
-      //   type: "wheel,touch,pointer",
-      //   onDown: () => {
-      //     if (op == 1) {
-      //       dt -= vsiEl[0].clientHeight;
-      //       detalisIndex += 1;
+       gsap.to(".o-slide-four__detalis-items", {
+          y: dtp,
+          immediateRender: true,
+          onComplete: () => {
+            animating = false;
+            if (dt == 2) {
+              if (obisEnbale == false) {
+                obsc1.enable();
+                obsc2.enable();
+                obsc3.enable();
+                obisEnbale = true;
+              }
+            }
+          },
+        });
+      }
 
-      //       if (dt < -vsiEl[0].clientHeight * (vsiEl.length - 1)) {
-      //         dt = -vsiEl[0].clientHeight * (vsiEl.length - 1);
-      //         detalisIndex = 2;
-      //       }
-      //     }
-      //     if (!obsc3.isEnabled) {
-      //       !animating && scrollDetails(dt, detalisIndex);
-      //     }
+      Observer.create({
+        type: "wheel,touch,pointer",
+        onDown: (self) => {
+          if (obsc3.isEnabled == false && isScrolling == false) {
+            op += (self.deltaY + self.deltaX) / 1000;
+            if (op >= 1) {
+              op = 1;
+            }
 
-      //     console.log(obsc1.isEnabled);
+            if (op == 1 && !animating) {
+              if (dt == vsiEl.length - 1) {
+                dt = vsiEl.length - 1;
+              } else if (!animating) {
+                dt += 1;
+              }
 
-      //     if (detalisIndex == 2 && !obsc1.isEnabled && op == 1) {
+              !animating &&
+                scrollDetails(-(dt * vsiEl[0].clientHeight), detalisIndex);
+            }
+            gsap.to(vsidtls, { opacity: op });
+          }
+        },
 
-      //       setTimeout(()=> {
+        onUp: (self) => {
+          if (obsc3.isEnabled == false && isScrolling == false) {
+            if (dt == 0) {
+              dt = 0;
+            } else if (!animating) {
+              dt -= 1;
+            }
 
-      //         obsc1.enable((Self) => {});
-      //         obsc2.enable((Self) => {});
-      //         obsc3.enable((Self) => {});
+            if (dt == 0) {
+              op += (self.deltaY + self.deltaX) / 1000;
 
-      //       }, 1000)
+              if (op <= 0) {
+                op = 0;
+              }
+            }
 
-      //       }
-      //   },
-
-      //   onUp: () => {
-      //     if (op == 1 && !obsc3.isEnabled) {
-      //       dt += vsiEl[0].clientHeight;
-      //       detalisIndex -= 1;
-      //       if (dt > vsiEl[0].clientHeight * (vsiEl.length - 1)) {
-      //         dt = vsiEl[0].clientHeight * (vsiEl.length - 1);
-      //       }
-      //     }
-      //     if (!obsc3.isEnabled) {
-      //       !animating && scrollDetails(dt, detalisIndex);
-      //     }
-
-      //     if (detalisIndex == 0 && !obsc1.isEnabled && op == 0) {
-      //         // obsc1.enable((Self) => {});
-      //         // obsc2.enable((Self) => {});
-      //         // obsc3.enable((Self) => {});
-      //       }
-      //   },
-      //   onChange: (self) => {
-      //     if (!obsc1.isEnabled && !obsc3.isEnabled && detalisIndex == 0 ) {
-      //       op += (self.deltaY + self.deltaX) / 500;
-
-      //       if (op < 0) {
-      //         op = 0;
-      //       }
-
-      //       if (op > 1) {
-      //         op = 1;
-      //       }
-
-      //       gsap.to(".o-slide-four__detalis", {
-      //         opacity: op,
-      //         immediateRender: true,
-      //         onComplete: () => {
-      //           if (op == 0) {
-      //             // obsc1.enable((Self) => {});
-      //             // obsc2.enable((Self) => {});
-      //             // obsc3.enable((Self) => {});
-      //           }
-      //         },
-      //       });
-      //     }
-
-      //     // gsap.to(".o-slide-four__detalis-items", {
-      //     //     y: dt,
-      //     //   });
-      //   },
-      // });
+            gsap.to(vsidtls, {
+              opacity: op,
+              immediateRender: true,
+              onComplete: () => {
+                if (op == 0 && dt == 0) {
+                  if (obisEnbale == false) {
+                    obsc1.enable();
+                    obsc2.enable();
+                    obsc3.enable();
+                    obisEnbale = true;
+                  }
+                }
+              },
+            });
+            !animating &&
+              scrollDetails(-(dt * vsiEl[0].clientHeight), detalisIndex);
+            if (op == 0) {
+              // obsc1.enable();
+              // obsc2.enable();
+              // obsc3.enable();
+            }
+          }
+        },
+      });
     },
   },
 

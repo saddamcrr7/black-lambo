@@ -60,17 +60,15 @@
   }
 
   &__detalis-title {
-    font-weight: $font-weight-medium;
-    font-size: 336px;
-    line-height: 407px;
+    font-size: 18.75rem;
+    line-height:  18.75rem;
   }
 
   &__detalis-sub {
     margin-right: 204px;
     text-transform: uppercase;
     font-weight: 500;
-    font-size: 16px;
-    line-height: 100.02%;
-    font-weight: $font-weight-medium;
+    font-size: .81rem;
+    line-height: .81rem;
   }
 }

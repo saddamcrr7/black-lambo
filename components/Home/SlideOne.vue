@@ -1,7 +1,7 @@
 <template>
   <div class="o-slider-one">
     <div class="o-slider-one__container">
-      <h2 class="o-slider-one__title" ref="s1title" ><span ref="s1titlet">Explain about the</span> <span ref="s1titlet1">exclusive crypto club</span> </h2>
+      <h2 class="o-slider-one__title" ><span >Explain about the</span> <span >exclusive crypto club</span> </h2>
       <div class="o-slider-one__image">
         <img src="~/assets/images/Main-video.jpg" alt="" />
       </div>
@@ -15,7 +15,7 @@ export default {
   name: "HomeSlideOne",
 
   mounted() {
-    this.animations()
+    // this.animations()
   },
 
   methods: {
