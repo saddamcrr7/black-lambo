@@ -18,9 +18,9 @@ export default {
     document.querySelector("html").classList.add("home");
     document.querySelector("body").classList.add("home");
 
-    setTimeout(()=> {
+    setTimeout(() => {
       this.animations();
-    }, 1000)
+    }, 1000);
   },
 
   methods: {
@@ -28,7 +28,6 @@ export default {
       const gsap = this.$gsap,
         ScrollTrigger = this.$ScrollTrigger,
         Observer = this.$Observer;
-      console.log(Observer);
       gsap.registerPlugin(ScrollTrigger, Observer);
 
       const wrapper = this.$refs.indexWrapper;
@@ -40,8 +39,8 @@ export default {
       let isScrolling;
 
       const obsc1 = Observer.create({
-        target: '.p-index',
-        type: "touch,scroll,pointer",
+        target: ".p-index",
+        type: "touch,pointer",
         axis: "x",
         onChangeX: (self) => {
           scrollDelta += -self.deltaX;
@@ -65,7 +64,7 @@ export default {
       });
 
       const obsc2 = Observer.create({
-        target: '.p-index',
+        target: ".p-index",
         type: "wheel,touch",
         onChangeY: (self) => {
           scrollDelta += self.deltaY;
@@ -91,19 +90,21 @@ export default {
 
       let slider4rect = this.$refs.slide4.$el.getBoundingClientRect();
 
-      window.addEventListener('resize', ()=> {
+      window.addEventListener("resize", () => {
         slider4rect = this.$refs.slide4.$el.getBoundingClientRect();
-      })
+        scrollDelta = 0;
+        gsap.to(wrapper, { x: 0 });
+      });
 
       let obisEnbale = true;
       let obisEnbale1 = true;
       let obisEnbale2 = true;
 
       const obsc3 = Observer.create({
-        target: '.p-index',
+        target: ".p-index",
         type: "wheel,touch,scroll,pointer",
         onDown: (self) => {
-          console.log(slider4rect.x );
+          console.log(slider4rect.x);
           if (slider4rect.x <= scrollDelta && obisEnbale1) {
             obsc1.disable();
             obsc2.disable();
@@ -156,6 +157,29 @@ export default {
       const vsiEl = document.querySelectorAll(".o-slide-four__detalis-item");
       const vsidtls = document.querySelectorAll(".o-slide-four__detalis");
 
+      window.addEventListener("resize", () => {
+        op = 0.1;
+        dt = 0;
+
+        if (obisEnbale == false) {
+          obsc1.enable();
+          obsc2.enable();
+          obsc3.enable();
+          obisEnbale = true;
+        }
+
+        gsap.to(vsiEl, { opacity: 0.2, immediateRender: true });
+        gsap.to(vsiEl[0], {
+          opacity: 1,
+          immediateRender: true,
+          overright: true,
+        });
+
+        gsap.to(vsidtls, { opacity: 0 });
+
+        gsap.to(".o-slide-four__detalis-items", { y: 0 });
+      });
+
       gsap.set(vsiEl[0], { opacity: 1 });
 
       function scrollDetails(dtp, index, drec) {
@@ -173,7 +197,11 @@ export default {
           immediateRender: true,
           onComplete: () => {
             animating = false;
-            if (dt == vsiEl.length - 1 && drec == "down" &&  isScrolling == false) {
+            if (
+              dt == vsiEl.length - 1 &&
+              drec == "down" &&
+              isScrolling == false
+            ) {
               if (obisEnbale == false) {
                 obsc1.enable();
                 obsc2.enable();
@@ -186,7 +214,7 @@ export default {
       }
 
       Observer.create({
-        target: '.p-index',
+        target: ".p-index",
         type: "wheel,touch,pointer",
         onDown: (self) => {
           if (obsc3.isEnabled == false && isScrolling == false) {
@@ -229,9 +257,8 @@ export default {
               opacity: op,
               immediateRender: true,
               onComplete: () => {
-                console.log(op);
                 if (op == 0.1 && dt == 0) {
-                  if (obisEnbale == false ) {
+                  if (obisEnbale == false) {
                     obsc1.enable();
                     obsc2.enable();
                     obsc3.enable();
