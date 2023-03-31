@@ -4,7 +4,7 @@
       <NuxtLink to="/" class="o-header__brand">
         <Logo></Logo>
       </NuxtLink>
-      <Socials  v-if="isIndex"/>
+      <Socials v-if="isIndex" />
     </div>
   </div>
 </template>
@@ -17,22 +17,26 @@ export default {
 
   data() {
     return {
-      isIndex : ''
-    }
+      isIndex: "",
+    };
   },
 
   watch: {
     $route(to, from) {
       if (to.name == "index") {
-        this.isIndex = true
-      }else {
-        this.isIndex = false
+        this.isIndex = true;
+      } else {
+        this.isIndex = false;
       }
     },
   },
 
   mounted() {
-   
+    if ($nuxt.$route.name  == "index") {
+      this.isIndex = true;
+    } else {
+      this.isIndex = false;
+    }
   },
 
   methods: {},

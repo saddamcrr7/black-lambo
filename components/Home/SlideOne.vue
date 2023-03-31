@@ -3,7 +3,7 @@
     <div class="o-slider-one__container">
       <h2 class="o-slider-one__title" >Black Lambo Club</h2>
       <div class="o-slider-one__image">
-        <img src="~/assets/images/Main-video.jpg" alt="" />
+        <img src="https://images.unsplash.com/photo-1552176625-e47ff529b595?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80" alt="" />
       </div>
       <p class="o-slider-one__sub">Non consectetur a erat nam at lectus urna</p>
       <div class="o-slider-one__cta">learn more</div>
