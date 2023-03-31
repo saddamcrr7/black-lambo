@@ -1,7 +1,7 @@
 <template>
   <div class="o-slider-one">
     <div class="o-slider-one__container">
-      <h2 class="o-slider-one__title" ><span >Explain about the</span> <span >exclusive crypto club</span> </h2>
+      <h2 class="o-slider-one__title" >Black Lambo Club</h2>
       <div class="o-slider-one__image">
         <img src="~/assets/images/Main-video.jpg" alt="" />
       </div>

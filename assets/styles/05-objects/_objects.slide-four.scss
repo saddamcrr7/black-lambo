@@ -12,13 +12,17 @@
 
   &__content {
     width: 100%;
-    max-width: 617px;
+    max-width: 550px;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     position: relative;
     z-index: 2;
+
+    @include media-breakpoint-down(xxl) {
+      max-width: 500px;
+    }
   }
 
   &__line {
@@ -29,9 +33,9 @@
 
   &__text {
     margin-top: 40px;
-    margin-bottom: 209px;
+    margin-bottom: 170px;
     font-weight: $font-weight-medium;
-    font-size: .94rem;
+    font-size: 0.94rem;
 
     &--top {
       margin-top: 0;
@@ -39,12 +43,29 @@
       max-width: 330px;
       margin-left: auto;
     }
+
+    @include media-breakpoint-down(xxl) {
+      margin-bottom: 100px;
+      margin-top: 20px;
+
+
+    &--top {
+      margin-top: 0;
+      margin-bottom: 50px;
+    }
+    }
   }
 
   &__title {
     font-size: 4rem;
     line-height: 4rem;
-    margin-top: 200px;
+    margin-top: 170px;
+
+    @include media-breakpoint-down(xxl) {
+      font-size: 3rem;
+      line-height: 1;
+      margin-top: 100px;
+    }
   }
 
   &__detalis {
@@ -53,6 +74,10 @@
     right: 0;
     opacity: 0;
     will-change: transform;
+
+    @include media-breakpoint-down(xxl) {
+      right: 2rem;
+    }
   }
 
   &__detalis-items {
@@ -64,18 +89,27 @@
     opacity: 0.2;
     will-change: transform;
     padding: 5rem 0;
+
+    @include media-breakpoint-down(xxl) {
+      padding: 3rem 0;
+    }
   }
 
   &__detalis-title {
     font-size: 18.75rem;
-    line-height:  18.75rem;
+    line-height: 18.75rem;
+
+    @include media-breakpoint-down(xxl) {
+      font-size: 12.75rem;
+      line-height: 14.75rem;
+    }
   }
 
   &__detalis-sub {
     margin-right: 204px;
     text-transform: uppercase;
     font-weight: 500;
-    font-size: .81rem;
-    line-height: .81rem;
+    font-size: 0.81rem;
+    line-height: 0.81rem;
   }
 }

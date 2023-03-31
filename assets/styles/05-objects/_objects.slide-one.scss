@@ -26,8 +26,14 @@
 
   &__image {
     width: 100%;
-    height: 350px;
+    height: 35vh;
     margin-top: 40px;
+
+    @include media-breakpoint-down(xxl) {
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     img {
       width: 100%;
@@ -49,5 +55,9 @@
     font-weight: $font-weight-medium;
     font-size: .94rem;
     border: 2px solid $light;
+
+    @include media-breakpoint-down(xxl) {
+      margin-top: 30px;
+    }
   }
 }
