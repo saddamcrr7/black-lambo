@@ -10,6 +10,24 @@
       <div class="c-image-slider__image">
         <img src="~/assets/images/Marciegalo-big.png" alt="" />
       </div>
+      <div class="c-image-slider__image">
+        <img src="~/assets/images/Urus.png" alt="" />
+      </div>
+      <div class="c-image-slider__image">
+        <img src="~/assets/images/Aventador.png" alt="" />
+      </div>
+      <div class="c-image-slider__image">
+        <img src="~/assets/images/Marciegalo-big.png" alt="" />
+      </div>
+      <div class="c-image-slider__image">
+        <img src="~/assets/images/Urus.png" alt="" />
+      </div>
+      <div class="c-image-slider__image">
+        <img src="~/assets/images/Aventador.png" alt="" />
+      </div>
+      <div class="c-image-slider__image">
+        <img src="~/assets/images/Marciegalo-big.png" alt="" />
+      </div>
     </div>
   </div>
 </template>
