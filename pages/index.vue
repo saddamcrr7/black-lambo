@@ -89,7 +89,11 @@ export default {
         },
       });
 
-      const slider4rect = this.$refs.slide4.$el.getBoundingClientRect();
+      let slider4rect = this.$refs.slide4.$el.getBoundingClientRect();
+
+      window.addEventListener('resize', ()=> {
+        slider4rect = this.$refs.slide4.$el.getBoundingClientRect();
+      })
 
       let obisEnbale = true;
       let obisEnbale1 = true;
@@ -99,17 +103,18 @@ export default {
         target: '.p-index',
         type: "wheel,touch,scroll,pointer",
         onDown: (self) => {
+          console.log(slider4rect.x );
           if (slider4rect.x <= scrollDelta && obisEnbale1) {
             obsc1.disable();
             obsc2.disable();
             obsc3.disable();
             obisEnbale1 = false;
             obisEnbale2 = true;
-            scrollDelta = innerWidth * 3
             gsap.to(wrapper, {
               x: -innerWidth * 3,
               ease: "power4.out",
-              duration: 1.5,
+              duration: 2,
+              overright: true,
               immediateRender: true,
             });
           }
@@ -126,11 +131,11 @@ export default {
             obsc3.disable();
             obisEnbale2 = false;
             obisEnbale1 = true;
-            scrollDelta = innerWidth * 3
             gsap.to(wrapper, {
               x: -innerWidth * 3,
               ease: "power4.out",
-              duration: 1.5,
+              duration: 2,
+              overright: true,
               immediateRender: true,
             });
           }
@@ -168,7 +173,7 @@ export default {
           immediateRender: true,
           onComplete: () => {
             animating = false;
-            if (dt == vsiEl.length - 1 && drec == "down") {
+            if (dt == vsiEl.length - 1 && drec == "down" &&  isScrolling == false) {
               if (obisEnbale == false) {
                 obsc1.enable();
                 obsc2.enable();
@@ -185,7 +190,7 @@ export default {
         type: "wheel,touch,pointer",
         onDown: (self) => {
           if (obsc3.isEnabled == false && isScrolling == false) {
-            op += (self.deltaY + self.deltaX) / 1000;
+            op += (self.deltaY + self.deltaX) / 800;
             if (op >= 1) {
               op = 1;
             }
@@ -213,10 +218,10 @@ export default {
             }
 
             if (dt == 0) {
-              op += (self.deltaY + self.deltaX) / 1000;
+              op += (self.deltaY + self.deltaX) / 800;
 
-              if (op <= 0) {
-                op = 0;
+              if (op <= 0.1) {
+                op = 0.1;
               }
             }
 
@@ -224,8 +229,9 @@ export default {
               opacity: op,
               immediateRender: true,
               onComplete: () => {
-                if (op == 0 && dt == 0) {
-                  if (obisEnbale == false) {
+                console.log(op);
+                if (op == 0.1 && dt == 0) {
+                  if (obisEnbale == false ) {
                     obsc1.enable();
                     obsc2.enable();
                     obsc3.enable();
