@@ -1,0 +1,33 @@
+.c-section-nav {
+  position: fixed;
+  z-index: 99;
+  bottom: 50px;
+  left: 50px;
+
+  &__spy {
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    text-transform: uppercase;
+  }
+
+  &__spy-title {
+    margin-right: 20px;
+  }
+
+  &__spy-bar {
+    width: 100px;
+    height: 3px;
+    background-color: $light;
+    position: relative;
+  }
+
+  &__spy-bar-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background-color: #FFB547;
+  }
+}

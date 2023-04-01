@@ -12,5 +12,9 @@
   &__image {
     display: flex;
     backface-visibility: hidden;
+
+    img {
+      will-change: transform;
+    }
   }
 }

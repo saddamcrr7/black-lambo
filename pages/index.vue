@@ -7,6 +7,20 @@
       <HomeSlideFour ref="slide4" />
       <HomeSlideAbout ref="slide5" />
     </div>
+    <div class="c-section-nav">
+      <div class="c-section-nav__spy">
+        <div class="c-section-nav__spy-title">scroll to explore</div>
+        <div class="c-section-nav__spy-bar">
+          <div class="c-section-nav__spy-bar-inner"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-spy-titles">
+      <div class="c-spy-titles__item">crypto club</div>
+      <div class="c-spy-titles__item">pass</div>
+      <div class="c-spy-titles__item">detalis</div>
+    </div>
   </div>
 </template>
 
@@ -20,7 +34,7 @@ export default {
 
     setTimeout(() => {
       this.animations();
-    }, 1000);
+    }, 100);
   },
 
   methods: {
@@ -100,17 +114,21 @@ export default {
       let obisEnbale1 = true;
       let obisEnbale2 = true;
 
+      let op = 0.1;
+      let dt = 0;
+      let animating;
+
       const obsc3 = Observer.create({
         target: ".p-index",
         type: "wheel,touch,scroll,pointer",
         onDown: (self) => {
-          console.log(slider4rect.x);
           if (slider4rect.x <= scrollDelta && obisEnbale1) {
             obsc1.disable();
             obsc2.disable();
             obsc3.disable();
             obisEnbale1 = false;
             obisEnbale2 = true;
+
             gsap.to(wrapper, {
               x: -innerWidth * 3,
               ease: "power4.out",
@@ -132,13 +150,15 @@ export default {
             obsc3.disable();
             obisEnbale2 = false;
             obisEnbale1 = true;
-            gsap.to(wrapper, {
-              x: -innerWidth * 3,
-              ease: "power4.out",
-              duration: 2,
-              overright: true,
-              immediateRender: true,
-            });
+            if (obisEnbale == true) {
+              gsap.to(wrapper, {
+                x: -innerWidth * 3,
+                ease: "power4.out",
+                duration: 2,
+                overright: true,
+                immediateRender: true,
+              });
+            }
           }
         },
 
@@ -150,9 +170,7 @@ export default {
         },
       });
 
-      let op = 0.1;
-      let dt = 0;
-      let animating;
+      
 
       const vsiEl = document.querySelectorAll(".o-slide-four__detalis-item");
       const vsidtls = document.querySelectorAll(".o-slide-four__detalis");
@@ -257,13 +275,11 @@ export default {
               opacity: op,
               immediateRender: true,
               onComplete: () => {
-                if (op == 0.1 && dt == 0) {
-                  if (obisEnbale == false) {
+                if (op == 0.1 && dt == 0 && obisEnbale == false) {
                     obsc1.enable();
                     obsc2.enable();
                     obsc3.enable();
                     obisEnbale = true;
-                  }
                 }
               },
             });
@@ -272,6 +288,75 @@ export default {
           }
         },
       });
+
+      const sectionNav = document.querySelector(".c-section-nav");
+      const watchBtn = document.querySelector(".o-main-hero__watch-btn"),
+        barInner = document.querySelector(".c-section-nav__spy-bar-inner"),
+        s4dts = document.querySelector(".o-slide-four__detalis-items"),
+        watchBtnRect = watchBtn.getBoundingClientRect(),
+        slide1 = this.$refs.slide1.$el,
+        slide2 = this.$refs.slide2.$el,
+        slide3 = this.$refs.slide3.$el,
+        slide4 = this.$refs.slide4.$el,
+        slide5 = this.$refs.slide5.$el;
+
+      gsap.set(sectionNav, {
+        top: watchBtnRect.y,
+        left: watchBtnRect.width + 75,
+      });
+
+      setTimeout(() => {}, 100);
+      gsap.ticker.add(sectionNavAnim);
+
+      function sectionNavAnim() {
+        const watchBtnRect = watchBtn.getBoundingClientRect(),
+          slide1rect = slide1.getBoundingClientRect(),
+          slide2rect = slide2.getBoundingClientRect(),
+          slide3rect = slide3.getBoundingClientRect(),
+          slide4rect = slide4.getBoundingClientRect(),
+          slide5rect = slide5.getBoundingClientRect(),
+          s4dtsrect = s4dts.getBoundingClientRect();
+
+        if (-slide1rect.x < innerWidth) {
+          gsap.set(barInner, { width: (-slide1rect.x / innerWidth) * 100 });
+        }
+
+        if (slide2rect.x < 0 && -slide2rect.x < innerWidth) {
+          gsap.set(barInner, { width: (-slide2rect.x / innerWidth) * 100 });
+        }
+
+        if (slide3rect.x < 0 && -slide3rect.x < innerWidth) {
+          gsap.set(barInner, { width: (-slide3rect.x / innerWidth) * 100 });
+        }
+
+        if (slide4rect.x + s4dtsrect.top < 0 && -slide4rect.x < innerWidth) {
+          gsap.set(barInner, {
+            width:
+              (-(s4dtsrect.top + slide4rect.x) / (innerWidth + 644.203125)) *
+              100,
+          });
+        }
+
+        if (slide5rect.x < innerWidth / 2) {
+          gsap.to(sectionNav, {
+            autoAlpha: 0,
+            immediateRender: true,
+          });
+        } else {
+          gsap.to(sectionNav, {
+            autoAlpha: 1,
+            immediateRender: true,
+          });
+        }
+
+        if (watchBtnRect.left > 0) {
+          gsap.set(sectionNav, {
+            x: watchBtnRect.left,
+            ease: "none",
+            immediateRender: true,
+          });
+        }
+      }
     },
   },
 

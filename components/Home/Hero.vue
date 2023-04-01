@@ -8,7 +8,6 @@
         autoplay=""
         id="hero-video"
         playsinline=""
-        v-lazy-load
       >
         <source src="https://github.com/saddamcrr7/ap_nuxt/raw/main/hero.mp4"  type="video/mp4"/>
       </video>
