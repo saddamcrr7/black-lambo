@@ -3,6 +3,7 @@
     <Appheader />
     <AppheaderMenu />
     <AppheaderMenuToggler />
+    <Preloader />
     <Nuxt />
   </div>
 </template>
