@@ -16,10 +16,12 @@
       </div>
     </div>
 
-    <div class="c-spy-titles">
-      <div class="c-spy-titles__item">crypto club</div>
-      <div class="c-spy-titles__item">pass</div>
-      <div class="c-spy-titles__item">detalis</div>
+    <div class="c-spy-titles" ref="spyTitles">
+      <div class="c-spy-titles__items" ref="spyTitlesItems">
+        <div class="c-spy-titles__item">crypto club</div>
+        <div class="c-spy-titles__item">pass</div>
+        <div class="c-spy-titles__item">detalis</div>
+      </div>
     </div>
   </div>
 </template>
@@ -170,8 +172,6 @@ export default {
         },
       });
 
-      
-
       const vsiEl = document.querySelectorAll(".o-slide-four__detalis-item");
       const vsidtls = document.querySelectorAll(".o-slide-four__detalis");
 
@@ -276,10 +276,10 @@ export default {
               immediateRender: true,
               onComplete: () => {
                 if (op == 0.1 && dt == 0 && obisEnbale == false) {
-                    obsc1.enable();
-                    obsc2.enable();
-                    obsc3.enable();
-                    obisEnbale = true;
+                  obsc1.enable();
+                  obsc2.enable();
+                  obsc3.enable();
+                  obisEnbale = true;
                 }
               },
             });
@@ -289,8 +289,9 @@ export default {
         },
       });
 
-      const sectionNav = document.querySelector(".c-section-nav");
-      const watchBtn = document.querySelector(".o-main-hero__watch-btn"),
+      const sectionNav = document.querySelector(".c-section-nav"),
+        watchBtn = document.querySelector(".o-main-hero__watch-btn"),
+        bar = document.querySelector(".c-section-nav__spy-bar"),
         barInner = document.querySelector(".c-section-nav__spy-bar-inner"),
         s4dts = document.querySelector(".o-slide-four__detalis-items"),
         watchBtnRect = watchBtn.getBoundingClientRect(),
@@ -300,12 +301,20 @@ export default {
         slide4 = this.$refs.slide4.$el,
         slide5 = this.$refs.slide5.$el;
 
+      const spyTitles = this.$refs.spyTitles,
+        spyTitlesItems = this.$refs.spyTitlesItems,
+        spyTitlesItem = spyTitlesItems.querySelectorAll(".c-spy-titles__item");
+
       gsap.set(sectionNav, {
         top: watchBtnRect.y,
         left: watchBtnRect.width + 75,
       });
 
-      setTimeout(() => {}, 100);
+      gsap.set(spyTitles, {
+        top: watchBtnRect.y,
+        left: sectionNav.clientWidth + 75,
+      });
+
       gsap.ticker.add(sectionNavAnim);
 
       function sectionNavAnim() {
@@ -315,7 +324,12 @@ export default {
           slide3rect = slide3.getBoundingClientRect(),
           slide4rect = slide4.getBoundingClientRect(),
           slide5rect = slide5.getBoundingClientRect(),
+          barRect = bar.getBoundingClientRect(),
           s4dtsrect = s4dts.getBoundingClientRect();
+
+        gsap.set(spyTitles, {
+          left: barRect.left + barRect.width + 20,
+        });
 
         if (-slide1rect.x < innerWidth) {
           gsap.set(barInner, { width: (-slide1rect.x / innerWidth) * 100 });
@@ -323,13 +337,38 @@ export default {
 
         if (slide2rect.x < 0 && -slide2rect.x < innerWidth) {
           gsap.set(barInner, { width: (-slide2rect.x / innerWidth) * 100 });
+
+          gsap.to(spyTitlesItems, {
+            y: -0,
+            immediateRender: true,
+            duration: 0.5,
+            ease: "Power2.easeOut",
+          });
         }
 
         if (slide3rect.x < 0 && -slide3rect.x < innerWidth) {
           gsap.set(barInner, { width: (-slide3rect.x / innerWidth) * 100 });
+          gsap.to(spyTitlesItems, {
+            y: -spyTitlesItem[0].clientHeight,
+            immediateRender: true,
+            duration: 0.5,
+            ease: "Power2.easeOut",
+          });
+
+           gsap.to(".c-section-nav__spy-title", {
+            opacity:0,
+            immediateRender: true,
+          });
         }
 
         if (slide4rect.x + s4dtsrect.top < 0 && -slide4rect.x < innerWidth) {
+          gsap.to(spyTitlesItems, {
+            y: -spyTitlesItem[0].clientHeight * 2,
+            immediateRender: true,
+            duration: 0.5,
+            ease: "Power2.easeOut",
+          });
+
           gsap.set(barInner, {
             width:
               (-(s4dtsrect.top + slide4rect.x) / (innerWidth + 644.203125)) *
@@ -349,10 +388,62 @@ export default {
           });
         }
 
+        if (slide5rect.x < innerWidth / 2) {
+          gsap.to(spyTitles, {
+            autoAlpha: 0,
+            immediateRender: true,
+          });
+        } else if (slide4rect.x < innerWidth) {
+          gsap.to(spyTitles, {
+            autoAlpha: 1,
+            immediateRender: true,
+          });
+        }
+
         if (watchBtnRect.left > 0) {
           gsap.set(sectionNav, {
             x: watchBtnRect.left,
             ease: "none",
+            immediateRender: true,
+          });
+        }
+
+        if (
+          slide1rect.left < -slide1rect.width / 2 &&
+          -slide1rect.x < slide1rect.width
+        ) {
+          let per =
+            ((-slide1rect.left - slide1rect.width / 2) / slide1rect.width) *
+            200;
+
+          gsap.set(".c-section-nav__spy", {
+            xPercent: -per,
+            immediateRender: true,
+          });
+
+          gsap.set(".c-section-nav__spy-title", {
+            opacity: 1 - per / 100,
+            immediateRender: true,
+          });
+
+          gsap.set(spyTitles, {
+            opacity: per / 100,
+            immediateRender: true,
+          });
+        }
+
+        if (slide1rect.left < -slide1rect.width / 1.75) {
+          gsap.to(".o-main-hero__event", {
+            yPercent: 100,
+            autoAlpha: 0,
+            ease: "Power1.easeOut",
+            immediateRender: true,
+          });
+        } else if (-slide1rect.x < slide1rect.width) {
+          gsap.to(".o-main-hero__event", {
+            yPercent: 0,
+            autoAlpha: 1,
+            ease: "Power1.easeOut",
             immediateRender: true,
           });
         }

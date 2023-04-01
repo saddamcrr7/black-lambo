@@ -1,0 +1,22 @@
+.c-spy-titles {
+  position: fixed;
+  width: 105px;
+  height: 14px;
+  overflow: hidden;
+  mix-blend-mode: difference;
+  opacity: 0;
+  z-index: 999;
+
+  &__items {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &__item {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+}

@@ -80,6 +80,7 @@
     background-color: $dark;
     padding: 1.31rem;
     z-index: 2;
+    will-change: transform;
 
     svg {
       width: 12px;
